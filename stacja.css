@@ -17,6 +17,18 @@ body{
    
 }
 
-table tr td {
-    color: blue;
+.cards {
+    display: flex;
+    
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: linear-gradient(rgb(4, 8, 230),red, lightgreen);
+    text-align: center;
 }
