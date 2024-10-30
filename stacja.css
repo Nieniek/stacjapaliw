@@ -1,0 +1,22 @@
+body{
+    background-color: gray;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start;
+}
+.lewo{
+    flex-direction: column;
+    height: 100%;
+    padding: 5px;
+    background-color: lightblue;
+    
+}
+.miasta{
+    width: 200px;
+   
+}
+
+table tr td {
+    color: blue;
+}

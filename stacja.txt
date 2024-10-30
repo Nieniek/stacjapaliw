@@ -1,0 +1,9 @@
+1. INSERT INTO `adresy`(`id`, `miasto`, `ulica`, `numer`) VALUES ('null','Gdansk','jaskowa','1')
+2. INSERT INTO `stacje paliw`(`id`, `nazwa`, `adres`, `cena paliw`) VALUES ('null','circel','1','8');
+3.UPDATE `stacje paliw` SET `nazwa`='kropka' WHERE `id`= 1
+4.SELECT sp.id, sp.nazwa, sp.cena_paliw, a.miasto, a.numer FROM `stacje paliw` sp 
+JOIN adresy a ON sp.adres = a.id
+5.DELETE FROM `stacje paliw` WHERE id=1
+6.SELECT sp.id, sp.nazwa, sp.cena_paliw, a.miasto, a.numer, a.ulica FROM `stacje paliw` sp 
+JOIN adresy a ON sp.adres = a.id WHERE a.miasto='gdansk'
+7.SELECT sp.id, sp.nazwa, sp.cena_paliw, a.miasto, a.numer, a.ulica FROM `stacje paliw` sp JOIN adresy a ON sp.adres = a.id WHERE sp.cena_paliw BETWEEN 1.25 AND 6.50;
