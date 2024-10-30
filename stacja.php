@@ -66,14 +66,12 @@
 
     <div class='srodek'>
     <?php
-    
     if (isset($_GET['nazwa_stacji']) || isset($_GET['miasto']) || isset($_GET['cena_min']) || isset($_GET['cena_max'])) {
         $nazwa_stacji = $_GET['nazwa_stacji'];
         $miasto = $_GET['miasto'];
         $cena_min = $_GET['cena_min'];
         $cena_max = $_GET['cena_max'];
 
-     
         $query_stacje = "SELECT sp.nazwa, a.miasto, a.ulica, a.numer, sp.cena_paliw 
                          FROM `stacje paliw` sp 
                          JOIN adresy a ON sp.adres = a.id
@@ -94,39 +92,27 @@
 
         $result_stacje = $db->query($query_stacje);
 
-        
         if ($result_stacje->num_rows > 0) {
-            echo "<table border='1'>
-                    <tr >
-                        <th>Nazwa stacji</th>
-                        <th>Miasto</th>
-                        <th>Ulica</th>
-                        <th>Numer</th>
-                        <th>Cena paliwa</th>
-                    </tr>";
+            echo "<div class='cards'>";
             while ($row = $result_stacje->fetch_assoc()) {
-                echo "<tr>
-                        <td>" . $row['nazwa'] . "</td>
-                        <td>" . $row['miasto'] . "</td>
-                        <td>" . $row['ulica'] . "</td>
-                        <td>" . $row['numer'] . "</td>
-                        <td>" . $row['cena_paliw'] . " PLN</td>
-                      </tr>";
+                echo "<div class='card'>
+                        <h3>" . $row['nazwa'] . "</h3>
+                        <p>Miasto: " . $row['miasto'] . "</p>
+                        <p>Ulica: " . $row['ulica'] . " " . $row['numer'] . "</p>
+                        <p>Cena paliwa: " . $row['cena_paliw'] . " PLN</p>
+                      </div>";
             }
-            echo "</table>";
+            echo "</div>";
         } else {
-            echo "Brak wyników.";
+            echo "<p>Brak wyników.</p>";
         }
 
-      
         $result_stacje->close();
     }
 
-   
     $db->close();
     ?>
-    </div>
-
     <script src="script.js"></script>
+</div>
 </body>
 </html>
